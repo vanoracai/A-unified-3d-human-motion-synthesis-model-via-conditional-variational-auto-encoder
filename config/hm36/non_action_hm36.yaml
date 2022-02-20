@@ -1,0 +1,47 @@
+model: 'pose_class'
+save_video: True
+save_imgs: True
+mask_type: [1, 2, 3, 4] #1: prediction, 2: compeletion(random_consecutive_mask), 3:random_discrete_mask,4:center mask'
+mask_weights: [ 1, 1, 1, 1]
+test_mask_type: [ 1, 2, 3, 4] #1: prediction, 2: compeletion(random_consecutive_mask), 3:sparse mask, 4: center_mask (masked the centered ...frames)'
+test_mask_weights: [1, 1, 1, 1]
+fixed_input_num: 10
+
+
+##debug
+nThreads: 6
+
+dataset_name: 'hm36'
+actions_filter: 'distinguished'
+name: 'hm36/non_action/non_action_hm36'
+load_model_name: 'hm36/non_action/non_action_hm36'
+
+
+train_out_frame_num: 128
+test_out_frame_num: 128
+out_frame_num: 128
+
+# about model
+# action label:
+use_one_hot: True
+
+# for generator/ encoder
+encoder_use_action: False
+use_action: False
+use_spade: False
+use_attn: True
+enc_last_norm: 'none'
+
+# for discriminator
+multi_discriminator: False
+same_discriminator: False
+dis_norm: 'none'
+dis_use_action: False
+dis_use_attn: False
+
+# classifier
+add_classifier: False
+class_loss: 'smoothCE' #{L1|smoothCE}
+class_one_pred: False
+
+
